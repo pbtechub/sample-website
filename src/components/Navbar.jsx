@@ -22,13 +22,13 @@ const Navbar = (
   const [version, setVersion] = useState(false)
     
   return (
-    <div className={`w-full px-3 py-4 md:p-4 bg-slate-900 flex justify-between items-center ${getStarted ? 'border-b-[1px] border-gray-700' : ''}`}>
+    <div className={`w-full px-3 py-4 md:p-4 bg-slate-900 flex justify-between items-center ${getStarted ? 'border-b-[1px] border-gray-700 sticky top-0 z-30' : ''}`}>
         <div className='flex items-center'>
           <img 
             className='cursor-pointer'
             onClick={() => setGetStarted(!getStarted)}
             src='https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Tailwind_CSS_Logo.svg/2048px-Tailwind_CSS_Logo.svg.png' width={35} height={35}/>
-          <h1 className={`${getStarted ? 'hidden' : 'block'} mx-2 text-white text-2xl md:block font-semibold`}>pbtechub</h1>
+          <h1 className={`${getStarted ? 'hidden' : 'block'} mx-2 text-white text-2xl md:block font-normal`}>pbtechub</h1>
           <button 
             onClick={() => setVersion(!version)}
             className={`${getStarted ? 'block' : 'hidden'} ml-2 md:0 flex items-center bg-gray-800 hover:bg-gray-700 p-1 px-2 rounded-xl`}>

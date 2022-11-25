@@ -1,16 +1,18 @@
 import React from 'react';
 import { useState } from 'react';
 import { AiOutlineClose } from 'react-icons/ai';
+
 import { links, menu } from '../data/dummy';
 import { Link, NavLink } from 'react-router-dom';
 
 const Sidebar = ({activeMenu, setActiveMenu}) => {
  
   return (
-    <div className='relative p-5'>
+    <div className='relative p-5 lg:p-0'>
+      
       <AiOutlineClose 
         onClick={() => setActiveMenu(!activeMenu)}
-        className='absolute top-7 right-7 text-xl text-gray-400 font-semibold cursor-pointer'/>
+        className='absolute top-7 right-7 text-xl text-gray-400 font-semibold cursor-pointer lg:hidden'/>
         <div>
           {menu.map((list, index) => (
             <div>
@@ -34,7 +36,7 @@ const Sidebar = ({activeMenu, setActiveMenu}) => {
                 <p className='text-white text-lg font-semibold mt-5'>
                   {item.title}
                 </p>
-                <div className='absolute bg-gray-600 w-[0.5px] h-full opacity-2'></div>
+                {/* <div className='absolute bg-gray-600 w-[0.5px] h-full opacity-2'></div> */}
                 {item.links.map((link) => (
                   <NavLink
                     key={link.name}

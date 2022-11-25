@@ -6,7 +6,7 @@ const BottomNavbar = ({activeMenu, setActiveMenu}) => {
   
     
   return (
-    <div className='w-full px-3 py-4 md:p-4 bg-slate-900 flex justify-start items-center border-b-[1px] border-gray-700 lg:hidden'>
+    <div className='w-full px-3 py-4 md:p-4 bg-slate-900 flex justify-start items-center border-b-[1px] border-gray-700 lg:hidden sticky'>
        <HiOutlineMenu 
           className='text-gray-500 text-2xl cursor-pointer z-10'
           onClick={() => setActiveMenu(!activeMenu)}/>

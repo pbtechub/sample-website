@@ -1,98 +1,48 @@
-// import React, { useState} from 'react';
-// import Navbar  from './components/Navbar';
-// import BottomNavbar  from './components/BottomNavbar';
-// import Sidebar from './components/Sidebar';
-// import SearchSpace from './components/SearchSpace';
-// import Showcase from './components/Showcase';
-// import { BrowserRouter, Routes } from 'react-router-dom';
-// import SideMenu from './components/SideMenu';
-
-
-
-// const App = () => {
-//   const [activeMenu, setActiveMenu] = useState(false);
-//   const [activeSearch, setActiveSearch] = useState(false);
-//   const [sideMenu, setSideMenu] = useState(true);
-
-//   return (
-//     <div>
-//       <BrowserRouter>
-//       <div className={`${ activeMenu || activeSearch || sideMenu ? 'blur-[4px]' : 'blur-none'}`}>
-//       <div className={`${ activeMenu || activeSearch || sideMenu ? 'absolute w-full h-full top-0 left-0 bg-slate-900  opacity-[0.9]' : 'hidden'}`}></div>
-//        <Navbar 
-//           activeSearch={activeSearch}
-//           setActiveSearch={setActiveSearch}
-//           sideMenu={sideMenu}
-//           setSideMenu={setSideMenu}
-//           />
-//        <BottomNavbar 
-//           activeMenu={activeMenu}
-//           setActiveMenu={setActiveMenu}
-//           />
-//           <Showcase />    
-//     </div>
-//     <Routes>
-   
-//     </Routes>
-  
-//      {activeMenu ? (
-//         <div 
-//           className={`${activeMenu ? 'opacity-[1] blur-none' : ''} absolute top-0 left-0 w-80 bg-slate-800 h-auto overflow-y-hidden opacity-1 z-10`}> 
-//           <Sidebar 
-//             activeMenu={activeMenu}
-//             setActiveMenu={setActiveMenu}
-//             />
-//         </div>
-//       ) : (
-//         <div className='w-0'>
-//           {/* <Sidebar /> */}
-//         </div>)} 
-
-//         <div className={`${activeSearch ? 'block' : 'hidden'} absolute max-w-[800px] h-auto bg-slate-800 top-4 md:top-20 left-3 right-3 mx-auto rounded-lg`}>
-//           <SearchSpace 
-//             activeSearch={activeSearch}
-//             setActiveSearch={setActiveSearch}
-//             />
-//         </div>
-
-//         <div className={`${sideMenu ? 'block' : 'hidden'}  absolute w-[300px] h-auto bg-slate-800 top-4 md:top-20 right-3 rounded-lg p-5`}>
-//           <SideMenu 
-//             sideMenu={sideMenu}
-//             setSideMenu={setSideMenu}/>
-//         </div>
-//       </BrowserRouter>
-//     </div>
-    
-//   )
-// }
-
-// export default App
-
-
 
 import React, { useState} from 'react';
-
 import BottomNavbar from './BottomNavbar';
-
-
-const GetStarted = ({ activeMenu, setActiveMenu }) => {
+import Sidebar from './Sidebar';
+import Showcase from './Showcase';
+import { AiOutlineSearch } from 'react-icons/ai'
+const GetStarted = ({ activeMenu, setActiveMenu, activeSearch, setActiveSearch }) => {
   
   return (
     <div>
       
       <div>
-      {/* <div className={`${ activeMenu || activeSearch || sideMenu ? 'absolute w-full h-full top-0 left-0 bg-slate-900  opacity-[0.9]' : 'hidden'}`}></div> */}
-      
        <BottomNavbar 
           activeMenu={activeMenu}
           setActiveMenu={setActiveMenu}
-          />
-             
-    </div>
-    
-  
-     
-      
+          />  
+
+      <div className='flex w-full'>
+          <div 
+            className={`hidden lg:block w-80 bg-slate-900 h-auto  opacity-1 z-10 px-5`}> 
+              <div className='pt-10'>
+                  <button 
+                      onClick={() => setActiveSearch(! activeSearch)}
+                      className='hidden bg-gray-800 w-full  py-3 px-5 rounded-lg text-white text-sx font-semibold lg:flex justify-between mb-8 sticky'>
+                          <div className='flex items-center'>
+                              <AiOutlineSearch className='text-xl text-gray-400'/>
+                              <p className='text-sm ml-5 text-gray-300'>Quick search...</p>
+                            
+                          </div>
+                          <p className='text-gray-500 text-sm'>Ctrl K</p>
+                  </button>
+              </div>
+            
+                <Sidebar 
+                activeMenu={activeMenu}
+                setActiveMenu={setActiveMenu}
+                />
+          </div>
+          
+            <Showcase />
+          
+
+            
+        </div> 
+      </div>  
     </div>
     
   )

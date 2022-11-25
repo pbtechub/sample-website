@@ -6,33 +6,15 @@ import { AiOutlineStar } from 'react-icons/ai';
 import { MdLockClock } from 'react-icons/md'
 
 
-const SearchSpace = ({ activeSearch, setActiveSearch}) => {
- const [recentList, setRecentList] = useState(JSON.parse(localStorage.getItem('recentlist')));
- const [searchRecent, setSearchRecent] = useState('');
+const SearchSpace = ({ 
+    activeSearch, 
+    setActiveSearch, 
+    recentList,
+    searchRecent,
+    setSearchRecent,
+    handleDelete,
+    handleSubmit}) => {
 
- const addSearch = (item) => {
-    const id = recentList.length ? recentList[recentList.length - 1].id + 1 : 1;
-    const mySearchRecent = { id, item}
-    const searchItems = [...recentList, mySearchRecent]
-    console.log(searchItems)
-    setRecentList(searchItems)
-    localStorage.setItem('recentlist', JSON.stringify(searchItems)) 
- }
-
- 
-    const handleDelete = (id) => {
-       const searchItems = recentList.filter((item) => item.id !== id);
-       setRecentList(searchItems)
-       localStorage.setItem('recentlist', JSON.stringify(searchItems))
-       
-    }
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        if (!searchRecent) return
-        addSearch(searchRecent)  
-        
-    }
 
 
   return (
@@ -106,3 +88,6 @@ const SearchSpace = ({ activeSearch, setActiveSearch}) => {
 }
 
 export default SearchSpace
+
+
+// JSON.parse(localStorage.getItem('recentlist'))

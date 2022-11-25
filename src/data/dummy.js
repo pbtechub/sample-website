@@ -278,5 +278,24 @@ export const showcaseCards = [
   
 ]
 
+export const footer = [
+  {
+    title: 'Getting Started',
+    link: ['Installation', 'Editor Setup', 'Using with preprocessors', 'Optimizing for Production', 'Browser Support', 'UogradeGuide']
+  },
+  {
+    title: 'Core Concepts',
+    link: ['Utility-First Fundamentals', 'Handling Hover and Focus', 'Responsive Design', 'Dark Mode', 'Reusing Styles', 'Adding Custom styles', 'Functions and Directives']
+  },
+  {
+    title: 'Customization',
+    link: ['Configuration', 'Content Configuration', 'Theme Configuration', 'Custtomizing screen', 'Customizing spacing', 'Plugins', 'Presets']
+  },
+  {
+    title: 'Community',
+    link: ['GitHub', 'Discord', 'Twitter', 'Youtube']
+  }
+]
+
 
 
